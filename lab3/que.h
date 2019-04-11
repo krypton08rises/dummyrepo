@@ -5,10 +5,10 @@
 #define priority int 
 
 
-struct task {
+struct element {
 		taskid tid;
 		priority pr;
-}element;
+};
 
 struct queue 
 		{
@@ -43,7 +43,7 @@ int isEmpty(struct queue *q)
 
 struct queue *delq(struct queue *q)
 	{	
-		if(isEmpty(q) == 0)
+		if(isEmpty(q))
 			{	printf("No elements in queue");
 					return q;
 		}
@@ -63,7 +63,7 @@ struct queue *addq(struct queue *q ,struct element *ele)
 		struct node *n = (struct node*)malloc(sizeof(struct node));
 		 	n->ele = ele;	
 			n->next = NULL;
-			if(isEmpty(q)==0)
+			if(isEmpty(q))
 					q->first = n;		
 				else
 					{
@@ -80,7 +80,7 @@ int lengthq(struct queue *q)
 			return q->count;
 	}
 
-/*void printq(struct queue *q)
+void printq(struct queue *q)
 	{
 		struct node *ptr = q->first;
 
@@ -90,4 +90,4 @@ int lengthq(struct queue *q)
 				ptr = ptr->next;
 		}
 	}
-*/
+
