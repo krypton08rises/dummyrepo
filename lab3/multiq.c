@@ -17,9 +17,9 @@ struct multiq *createmq(int num)
 			return mq;
 	}
 
-struct addmq(multiq mq,task t)
+struct addmq(multiq mq,element t)
 		{
-			struct queue q1 = (mq->q)+(t->p);
+			struct queue q1 = (((mq->q)->t)->pr);
 				q1 = addq(q1,t);
 				q1>count++;
 	}
@@ -28,7 +28,8 @@ struct task nextmq(multiq mq){
 			int p =0;
 			while()
 				if(isempty(mq->q)==0)
-					if((mq->q))
+					if((mq->q)->pr>p)
+					
 		}
 
 struct task delnextmq(multiq mq)
