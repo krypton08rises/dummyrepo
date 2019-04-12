@@ -1,7 +1,7 @@
 #include "List.h"
 List createList(Student studarray,int arraysize)
 	{
-		List l = (List)(malloc(sizeof(List)));
+		List l = (List)myalloc(sizeof(List));
 		
 		for(int i=0;i<arraysize;i++)
 			{
@@ -68,4 +68,19 @@ double measureSortingTime(List list)
 		double ms = (double)stop-(double)start;
 		printf("%lf",ms);
 }
+void myfree()
+	{
+		int size_del=*(int *)(ptr-sizeof(int));
+		globalCounter=globalCounter-size_del;
+		ptr=ptr-sizeof(int);
+		free(ptr);
+}
+void * myalloc(int size)
+	{
+		void *ptr=malloc(size+sizeof(int));
+		*(int *)ptr=size;
+		globalCounter=globalCounter+size;
+		return ptr+sizeof(int);
+}
+
 
